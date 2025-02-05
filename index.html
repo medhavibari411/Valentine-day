@@ -81,7 +81,7 @@
 </head>
 <body>
     <audio id="bg-music" loop>
-        <source src="A.mp3" type="audio/mp3">
+        <source src="" type="audio/mp3">
     </audio>
     <div class="container">
         <h1>Will You Be My Valentine? 💖</h1>
@@ -98,11 +98,16 @@
     </div>
     <script>
         function reply(answer) {
+            let music = document.getElementById('bg-music');
+
             if (answer === 'Yes') {
                 document.getElementById('love-letter').style.display = 'block';
-                document.getElementById('bg-music').play();
+                music.src = 'B.mp3';  // Play song for Yes
+                music.play();
                 createHearts();
             } else {
+                music.src = 'A.mp3';  // Play song for No
+                music.play();
                 alert('Oh no! But maybe next time? 💔');
             }
         }
